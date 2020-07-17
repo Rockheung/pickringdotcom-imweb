@@ -228,7 +228,7 @@
     > div
     > a.btn.pull-right._2B706l0583
     > i {
-    transform: scale(1.2);
+    transform: scale(1.2) translateY(1px);
   }
 
   /** 상품상세 */
@@ -321,6 +321,9 @@
       padding: 70px;
       margin: 0 auto;
     }
+    img[data-badge-custom-by-rock] {
+      display: none !important;
+    }
   }
 
   #w202006059d82c1b790779 > div > div > div > div:nth-child(1),
@@ -411,5 +414,21 @@
 
   a[data-unfold-custom-by-rock].folded i {
     transform: rotate(-90deg);
+  }
+
+  @media (max-width: 991px) {
+    a[data-unfold-custom-by-rock] {
+      display: none;
+    }
+  }
+
+  .prod_icon.new {
+    background-color: rgb(113,175,58);
+    border: 1px solid rgb(113,175,58);
+  }
+  .prod_icon.hot {
+    background-color: rgb(230,0,69);
+    border: 1px solid rgb(230,0,69);
+    color: #fff
   }
 </style>
