@@ -1,5 +1,8 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"
-  integrity="sha256-VeNaFBVDhoX3H+gJ37DpT/nTuZTdjYro9yBruHjVmoQ=" crossorigin="anonymous"></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.15/lodash.min.js"
+  integrity="sha256-VeNaFBVDhoX3H+gJ37DpT/nTuZTdjYro9yBruHjVmoQ="
+  crossorigin="anonymous"
+></script>
 <style>
   /**
   Home(Genre) 에서 슬라이드 상단 반응형 대응
@@ -25,7 +28,8 @@
     margin-bottom: 30px;
   }
 
-  .rock-1SQk8wu.slide-button {}
+  .rock-1SQk8wu.slide-button {
+  }
 
   @media (max-width: 1450px) {
     .rock-1SQk8wu.slide-header {
@@ -255,7 +259,14 @@
     transform: scale(1.4);
   }
 
-  #doz_footer>div>div>div.footer-wrap>div.foot-sociallink._sns_link>div>a.btn.pull-right._2B706l0583>i {
+  #doz_footer
+    > div
+    > div
+    > div.footer-wrap
+    > div.foot-sociallink._sns_link
+    > div
+    > a.btn.pull-right._2B706l0583
+    > i {
     transform: scale(1.2) translateY(1px);
   }
 
@@ -270,7 +281,7 @@
       margin: auto;
     }
 
-    div[data-widget-type="shop_view"] .row.goods_wrapper>div {
+    div[data-widget-type="shop_view"] .row.goods_wrapper > div {
       border: solid 1px #040922;
       width: calc(50vw - 105px);
       height: calc(50vw - 105px);
@@ -278,7 +289,7 @@
       display: inline-block;
     }
 
-    div[data-widget-type="shop_view"] .row.goods_wrapper>div:last-child {
+    div[data-widget-type="shop_view"] .row.goods_wrapper > div:last-child {
       border-left: 0;
       padding: 30px;
     }
@@ -334,21 +345,20 @@
     div[data-widget-type="shop_view"] .buy_btns.pc a.btn:last-child {
       border-right: 0px;
     }
-
   }
 
-  @media (min-width: 1311px) and (max-width: 1730px) {
-    div[data-widget-type="shop_view"] .row.goods_wrapper>div:last-child {
+  @media  (max-width: 1730px) and (min-width: 1311px) {
+    div[data-widget-type="shop_view"] .row.goods_wrapper > div:last-child {
       padding: 70px;
     }
 
     div[data-widget-type="shop_view"] .fr-view .fr-dib {
-      width: calc(100% - 210px);
+      width: calc((100% - 210px)/2);
     }
   }
 
   @media (min-width: 1731px) {
-    div[data-widget-type="shop_view"] .row.goods_wrapper>div:last-child {
+    div[data-widget-type="shop_view"] .row.goods_wrapper > div:last-child {
       padding: 140px;
     }
 
@@ -363,7 +373,7 @@
       margin: auto;
     }
 
-    div[data-widget-type="shop_view"] .row.goods_wrapper>div {
+    div[data-widget-type="shop_view"] .row.goods_wrapper > div {
       width: 50vw;
       height: 50vw;
     }
@@ -384,8 +394,14 @@
     }
   }
 
-  #w202006059d82c1b790779>div>div>div>div:nth-child(1),
-  #w202006053ccd7773739e1>div>div>div>div:nth-child(1) {
+  @media (max-width: 766px) {
+    img[data-badge-custom-by-rock] {
+      display: none !important;
+    }
+  }
+
+  #w202006059d82c1b790779 > div > div > div > div:nth-child(1),
+  #w202006053ccd7773739e1 > div > div > div > div:nth-child(1) {
     transform: translateY(3px);
   }
 
@@ -426,7 +442,6 @@
   }
 
   @media (max-width: 990px) {
-
     div[data-widget-type="shop_showcase"] a.owl_prev_button,
     div[data-widget-type="shop_showcase"] a.owl_prev_button img,
     div[data-widget-type="shop_showcase"] a.owl_next_button,
@@ -453,7 +468,6 @@
     }
   }
 
-
   div[data-widget-type="shop_showcase"] a.owl_prev_button.pause,
   div[data-widget-type="shop_showcase"] a.owl_next_button.pause,
   div[data-widget-type="shop_showcase"] img.pause_mark_left.pause,
@@ -462,21 +476,21 @@
     overflow: hidden;
   }
 
-  main>div[doz_type="inside"] .shop-item,
-  main>div[doz_type="inside"],
-  main>div[doz_type="aside"],
-  main>div.side_gutter {
+  main > div[doz_type="inside"] .shop-item,
+  main > div[doz_type="inside"],
+  main > div[doz_type="aside"],
+  main > div.side_gutter {
     transition: all 0.15s linear 0s;
   }
 
-  main>div[doz_type="aside"].folded,
-  main>div.side_gutter.folded {
+  main > div[doz_type="aside"].folded,
+  main > div.side_gutter.folded {
     left: -330px;
     padding-left: 0px !important;
     width: 0px !important;
   }
 
-  main>div[doz_type="inside"].folded {
+  main > div[doz_type="inside"].folded {
     padding-left: 0px !important;
   }
 
@@ -498,6 +512,6 @@
   .prod_icon.hot {
     background-color: rgb(230, 0, 69);
     border: 1px solid rgb(230, 0, 69);
-    color: #fff
+    color: #fff;
   }
 </style>
