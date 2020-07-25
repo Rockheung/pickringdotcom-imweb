@@ -5,22 +5,40 @@
 </style>
 <script>
   (function () {
+    var _count = 0;
     function getCategoryAnchor() {
       var categoryAnchor = $(
         'div[data-widget-type="shop_view"] .shop_sub_depth li'
       ).slice(2);
-      if ($(categoryAnchor[0]).html()) {
+      var categoryAnchorText = categoryAnchor.text();
+      if (
+        // $(categoryAnchor[0]).html() &&
         $('div[data-widget-type="shop_view"] .goods_wrapper .margin-bottom-xxl')
-          .prepend(`<div class="option_wrap" style="display: block; font-size:12px; ">
-		<div class="inline-blocked vertical-middle">
-			<span class="option_title text-bold">Genre</span>
-		</div>
-		<div class="inline-blocked vertical-middle">
-			<span class="option_data">${$(categoryAnchor[0]).html() || "ETC"}</span>
-		</div>
-  </div>`);
+          .length
+      ) {
+        var _href;
+        $("#dropdown_m2020060376defda931b87 > ul > li > a > span").each(
+          function (_, ele) {
+            if (categoryAnchorText === $(ele).text()) {
+              _href = $(ele).parent().data("url");
+            }
+          }
+        );
+
+        console.log(_href, categoryAnchorText);
+
+        var genreAnchor =
+          '<a href="/' + _href + '">' + categoryAnchorText + "</a>";
+        $(
+          'div[data-widget-type="shop_view"] .goods_wrapper .margin-bottom-xxl'
+        ).prepend(
+          '<div class="option_wrap" style="display: block; font-size:12px; "><div class="inline-blocked vertical-middle"><span class="option_title text-bold">Genre</span></div><div class="inline-blocked vertical-middle"><span class="option_data">' +
+            genreAnchor +
+            "</span></div></div>"
+        );
       } else {
-        console.log('failed getCategoryAnchor')
+        console.log("failed getCategoryAnchor, try again.", _count);
+        _count += 1;
         setTimeout(getCategoryAnchor, 500);
       }
     }
@@ -28,3 +46,22 @@
     $(window).load(getCategoryAnchor);
   })();
 </script>
+
+<p>
+  <img
+    data-badge-custom-by-rock=""
+    src="https://res.cloudinary.com/pickring/image/upload/c_scale,w_100/v1592393006/res/pickring_badge_rock_y3nkwz.png"
+    alt=""
+    class="fr-fic fr-dii"
+  />
+</p>
+<div data-track-number-by-rock="000" style="display: none;">
+  <br />
+</div>
+<div data-genre-page-by-rock="19" style="display: none;">
+  <br />
+</div>
+
+<p>
+  <br />
+</p>
