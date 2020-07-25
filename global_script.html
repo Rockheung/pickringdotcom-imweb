@@ -199,24 +199,34 @@
       }
     }
 
-    function removeNavbarAnchorSrc() {
-      $(
-        "#doz_header .viewport-nav.desktop._main_menu > li.dropdown:nth-child(1) > a"
-      ).removeAttr("href");
-      $(
-        "#mobile_slide_menu .viewport-nav.mobile._menu_wrap > li:nth-child(2) > a"
-      ).removeAttr("href");
+    function removeShopPayment() {
+      if (window.location.href.match("shop_payment")) {
+        $("#doz_header .new_fixed_header").css("display", "none");
+      }
     }
 
     function fitProductDetailImg() {
-      if (
-        window.location.href.match("shopall\\\/\\\?idx") &&
-        $(window).width() <= 990
-      ) {
+      if (window.location.href.match("\\\?idx") && $(window).width() <= 990) {
         $("#prod_image_list div.owl-stage-outer div.item").attr(
           "style",
-          "width: calc(" + $(window).width()  + "px - 15px * 2); margin: 0px auto;"
+          "width: calc(" +
+            $(window).width() +
+            "px - 15px * 2); margin: 0px auto;"
         );
+      }
+    }
+
+    function enableZoomFeature() {
+      if (window.location.href.match("\\\?idx")) {
+        $('head meta[name="viewport"]').attr(
+          "content",
+          "width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no"
+        );
+      } else {
+        // $('head meta[name="viewport"]').attr(
+        //   "content",
+        //   "user-scalable=no, width=device-width"
+        // );
       }
     }
 
@@ -234,8 +244,9 @@
       .load(genFolderButton)
       .load(reformProductImages)
       .load(insertTrackNumber)
-      .load(removeNavbarAnchorSrc)
-      .load(fitProductDetailImg);
+      .load(removeShopPayment)
+      .load(fitProductDetailImg)
+      .load(enableZoomFeature);
   })();
 
   function owlSetPause(shop_showcase_widget_id) {

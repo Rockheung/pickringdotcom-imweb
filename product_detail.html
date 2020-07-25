@@ -1,26 +1,30 @@
 <style>
   #w202006031a095328dd511 .shop_sub_depth {
-	display: none !important;
+    display: none !important;
   }
 </style>
 <script>
   (function () {
-	function getCategoryAnchor() {
+    function getCategoryAnchor() {
       var categoryAnchor = $(
         'div[data-widget-type="shop_view"] .shop_sub_depth li'
       ).slice(2);
-      $(
-        'div[data-widget-type="shop_view"] .goods_wrapper .margin-bottom-xxl'
-      ).prepend(`<div class="option_wrap" style="display: block; font-size:12px; ">
+      if ($(categoryAnchor[0]).html()) {
+        $('div[data-widget-type="shop_view"] .goods_wrapper .margin-bottom-xxl')
+          .prepend(`<div class="option_wrap" style="display: block; font-size:12px; ">
 		<div class="inline-blocked vertical-middle">
 			<span class="option_title text-bold">Genre</span>
 		</div>
 		<div class="inline-blocked vertical-middle">
-			<span class="option_data">${$(categoryAnchor[0]).html()}</span>
+			<span class="option_data">${$(categoryAnchor[0]).html() || "ETC"}</span>
 		</div>
   </div>`);
+      } else {
+        console.log('failed getCategoryAnchor')
+        setTimeout(getCategoryAnchor, 500);
+      }
     }
-	$(window).load(getCategoryAnchor);
-  })()
-  
+
+    $(window).load(getCategoryAnchor);
+  })();
 </script>
