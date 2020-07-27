@@ -62,8 +62,8 @@
   }
 
   /* 상단 헤더 PC, Mobile*/
-  #s202006031c71f985e5e90 .badge._shop_cart_badge_cnt_wrap,
-  #s20200603a69c36bec958a .badge._shop_cart_badge_cnt_wrap {
+  #inline_header_normal .badge._shop_cart_badge_cnt_wrap,
+  #inline_header_fixed .badge._shop_cart_badge_cnt_wrap {
     width: 18px !important;
     height: 18px !important;
     border-radius: 9px;
@@ -72,9 +72,8 @@
   }
 
   /* 고정 헤더 */
-  #s20200604675235f5525b6 .badge._shop_cart_badge_cnt_wrap {
-    background-color: #ffffff;
-    color: #040922 !important;
+  #inline_header_normal .badge._shop_cart_badge_cnt_wrap,
+  #inline_header_fixed .badge._shop_cart_badge_cnt_wrap {
     transition: 0.3s;
     width: 18px !important;
     height: 18px !important;
@@ -83,7 +82,8 @@
     padding: 2px !important;
   }
 
-  #s20200604675235f5525b6 .badge._shop_cart_badge_cnt_wrap:hover {
+  #w202006059d82c1b790779 .badge._shop_cart_badge_cnt_wrap:hover,
+  #w2020072710a79e16f40ac .badge._shop_cart_badge_cnt_wrap:hover {
     background-color: #040922;
   }
 
@@ -352,8 +352,14 @@
       padding: 70px;
     }
 
-    div[data-widget-type="shop_view"] .fr-view .fr-dib {
-      width: 50vw !important;
+    div[data-widget-type="shop_view"] .shop_view_body > p {
+      width: 40vw !important;
+      max-width: 990px;
+      margin: 0 auto;
+    }
+
+    div[data-widget-type="shop_view"] .shop_view_body > p > * {
+      margin: 5px 0;
     }
   }
 
@@ -362,8 +368,14 @@
       padding: 140px;
     }
 
-    div[data-widget-type="shop_view"] .fr-view .fr-dib {
-      width: 50vw !important;
+    div[data-widget-type="shop_view"] .shop_view_body > p {
+      width: 40vw !important;
+      max-width: 990px;
+      margin: 0 auto;
+    }
+
+    div[data-widget-type="shop_view"] .shop_view_body > p > * {
+      margin: 5px 0;
     }
   }
 
@@ -378,7 +390,7 @@
       height: 50vw;
     }
     div[data-widget-type="shop_view"] .fr-view .fr-dib {
-      width: 100vw;
+      width: 60vw !important;
       margin: 0 auto;
     }
   }
@@ -401,7 +413,7 @@
   }
 
   #w202006059d82c1b790779 > div > div > div > div:nth-child(1),
-  #w202006053ccd7773739e1 > div > div > div > div:nth-child(1) {
+  #w2020072710a79e16f40ac > div > div > div > div:nth-child(1) {
     transform: translateY(3px);
   }
 
@@ -509,7 +521,7 @@
     border: 1px solid rgb(113, 175, 58);
   }
 
-  .prod_icon.hot {
+  .prod_icon.hot, .prod_icon.icon_default {
     background-color: rgb(230, 0, 69);
     border: 1px solid rgb(230, 0, 69);
     color: #fff;

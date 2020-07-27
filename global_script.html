@@ -1,5 +1,25 @@
 <script>
   (function () {
+    function enableZoomFeature() {
+      if (window.location.href.match("\\\?idx")) {
+        $('head meta[name="viewport"]').attr(
+          "content",
+          "width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=3.0,user-scalable=yes"
+        );
+      } else {
+        // $('head meta[name="viewport"]').attr(
+        //   "content",
+        //   "user-scalable=no, width=device-width"
+        // );
+      }
+    }
+
+    $(document).ready(enableZoomFeature);
+  })();
+</script>
+
+<script>
+  (function () {
     function setBadgeSlider() {
       $(
         'div[data-widget-type="shop_showcase"] .item-summary img[data-badge-custom-by-rock]'
@@ -32,11 +52,11 @@
         ).text("0");
       }
       var cartTextFixed = $(
-        "#w202006053ccd7773739e1 > div > div > div > div.inline-blocked.login_btn_item.badge_class > a > span.badge_wrap > sup"
+        "#w2020072710a79e16f40ac > div > div > div > div.inline-blocked.login_btn_item.badge_class > a > span.badge_wrap > sup"
       ).text();
       if (!cartTextFixed || !cartTextFixed.length) {
         $(
-          "#w202006053ccd7773739e1 > div > div > div > div.inline-blocked.login_btn_item.badge_class > a > span.badge_wrap > sup"
+          "#w2020072710a79e16f40ac > div > div > div > div.inline-blocked.login_btn_item.badge_class > a > span.badge_wrap > sup"
         ).text("0");
       }
     }
@@ -216,20 +236,6 @@
       }
     }
 
-    function enableZoomFeature() {
-      if (window.location.href.match("\\\?idx")) {
-        $('head meta[name="viewport"]').attr(
-          "content",
-          "width=device-width,initial-scale=1.0,minimum-scale=1.0,user-scalable=no"
-        );
-      } else {
-        // $('head meta[name="viewport"]').attr(
-        //   "content",
-        //   "user-scalable=no, width=device-width"
-        // );
-      }
-    }
-
     $(window)
       .load(setBadgeSlider)
       .resize(setBadgeSlider)
@@ -245,8 +251,7 @@
       .load(reformProductImages)
       .load(insertTrackNumber)
       .load(removeShopPayment)
-      .load(fitProductDetailImg)
-      .load(enableZoomFeature);
+      .load(fitProductDetailImg);
   })();
 
   function owlSetPause(shop_showcase_widget_id) {
