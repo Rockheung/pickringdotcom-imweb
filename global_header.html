@@ -96,6 +96,15 @@
     padding: 2px !important;
   }
 
+  #inline_header_mobile .badge._shop_cart_badge_cnt_wrap {
+    margin-bottom: 2px;
+  }
+
+  #w20200608b72a6472268f0 > div > div > a {
+    padding-top: 12px !important;
+    padding-bottom: 8px !important;
+  }
+
   #w202006059d82c1b790779 .badge._shop_cart_badge_cnt_wrap:hover,
   #w2020072710a79e16f40ac .badge._shop_cart_badge_cnt_wrap:hover {
     background-color: #040922;
@@ -177,6 +186,12 @@
 
     img[data-badge-custom-by-rock] {
       width: 11.8vw !important;
+    }
+  }
+
+  @media (max-width: 990px) {
+    div[data-widget-type="shop_showcase"] {
+      margin: 0 15px;
     }
   }
 
@@ -535,8 +550,13 @@
     border: 1px solid rgb(113, 175, 58);
   }
 
-  .prod_icon.hot,
-  .prod_icon.icon_default {
+  .prod_icon.hot {
+    background-color: rgb(230, 0, 69);
+    border: 1px solid rgb(230, 0, 69);
+    color: #fff;
+  }
+
+  div[data-widget-type="shop_view"] .prod_icon.icon_default {
     background-color: rgb(230, 0, 69);
     border: 1px solid rgb(230, 0, 69);
     color: #fff;
@@ -576,7 +596,51 @@
     margin-bottom: 25px;
   }
 
-  #doz_footer * {
-    font-size: 12px;
+  #doz_footer a,
+  #doz_footer p {
+    font-size: 14px;
+  }
+
+  #doz_footer .footer-section .inside {
+    margin: 30px;
+    max-width: none;
+  }
+
+  #doz_footer .footer-section .footer-company-customized-by-rock {
+    display: flex;
+    margin: 15px;
+  }
+
+  #doz_footer .footer-section .footer-company-customized-by-rock div {
+    flex: 1;
+  }
+
+  #doz_footer
+    .footer-section
+    .footer-company-customized-by-rock
+    div:first-child {
+    flex-grow: 0.39;
+  }
+
+  #doz_footer .site-brand {
+    display: none;
+  }
+
+  @media (max-width: 992px) {
+    #doz_footer .footer-section .inside {
+      margin: 0;
+    }
+
+    #doz_footer .footer-section .footer-company-customized-by-rock {
+      flex-direction: column;
+      margin: 30px 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #doz_footer .foot-sociallink {
+      margin-left: 37vw;
+      margin-top: -8%;
+    }
   }
 </style>

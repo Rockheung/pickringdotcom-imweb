@@ -2,6 +2,30 @@
   #w202006031a095328dd511 .shop_sub_depth {
     display: none !important;
   }
+
+  @media (min-width: 769px) {
+    #naverPayWrap {
+      display: none;
+    }
+    a[id^="NPAY_BUY_LINK_IDNC_ID_"] {
+    }
+    a[id^="NPAY_BUY_LINK_IDNC_ID_"] span {
+      display: none;
+    }
+    div.buy_btns.holder.pc {
+      display: flex;
+
+    }
+    div.buy_btns.holder.pc a {
+      height: 37px;
+      width: auto;
+      font-size: 12px;
+      flex: 1;
+      margin: 0 !important;
+      padding: 0;
+      line-height: 35px;
+    }
+  }
 </style>
 <script>
   (function () {
@@ -39,10 +63,18 @@
       } else {
         console.log("failed getCategoryAnchor, try again.", _count);
         _count += 1;
-        setTimeout(getCategoryAnchor, 500);
+        if (_count < 10) {
+          setTimeout(getCategoryAnchor, 500);
+        }
       }
     }
 
+    function naverPayCustom() {
+      $('a[id^="NPAY_BUY_LINK_IDNC_ID_"]').attr('target','_blank');
+      $("div.buy_btns.holder.pc").prepend($('a[id^="NPAY_BUY_LINK_IDNC_ID_"]'));
+    }
+
+    $(document).ready(naverPayCustom);
     $(window).load(getCategoryAnchor);
   })();
 </script>
