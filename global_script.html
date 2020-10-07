@@ -45,12 +45,17 @@
       }
     }
 
+    function bottomGenreAnchorPreventDefault() {
+      $('#doz_footer div.foot-main-nav._main_menu_wrap > ul > li:nth-child(1) > a').attr('onclick', 'function(e) {e.preventDefault()}')
+    }
+
     $(document)
       .ready(enableZoomFeature)
       .ready(genreShowcaseMargin)
       .ready(owlCarouselRightHidden)
       .ready(reOrderingFooter)
-      // .ready(setHotBadgeRedOnProductDetail);
+      .ready(bottomGenreAnchorPreventDefault);
+    // .ready(setHotBadgeRedOnProductDetail);
   })();
 </script>
 
@@ -380,6 +385,7 @@
       $(document).width() < 990
     ) {
       if ($("#mobile_slide_menu div.member-info").hasClass("guest")) {
+        console.log("Exec dropdown");
         $(
           "#mobile_slide_menu > ul > div > li:nth-child(3) > a > span._toggle_btn.toggle-btn"
         ).click();
@@ -389,6 +395,7 @@
         ).click();
       }
     } else {
+      console.log("Exec void 0");
       void 0;
     }
   }
