@@ -26,6 +26,22 @@
       line-height: 35px;
     }
   }
+  
+  @media (min-width: 1311px) {
+    div[data-widget-type="shop_view"] .shop_view_body > p ,
+    div[data-widget-type="shop_view"] .shop_view_body > a ,
+    div[data-widget-type="shop_view"] .shop_view_body > blockquote ,
+    div[data-widget-type="shop_view"] .shop_view_body > div {
+      display: block;
+      width: 40vw !important;
+      max-width: 990px;
+      margin: 0 auto;
+    }
+
+    div[data-widget-type="shop_view"] .shop_view_body > p > * {
+      margin: 5px 0;
+    }
+  }
 </style>
 <script>
   (function () {
