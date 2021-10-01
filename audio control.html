@@ -1,0 +1,90 @@
+<audio id="bgm-player" loop>
+  <source
+    src="https://res.cloudinary.com/pickring/video/upload/v1603967128/audio/MR%E1%84%8C%E1%85%A2%E1%84%87%E1%85%AE%E1%84%90%E1%85%B5%E1%86%BC-%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%8C%E1%85%A1%E1%86%BC%E1%84%8B%E1%85%A6_%E1%84%89%E1%85%B3%E1%86%AF%E1%84%85%E1%85%B5%E1%84%91%E1%85%A5_%E1%84%80%E1%85%B5%E1%86%B7%E1%84%8C%E1%85%A2%E1%84%80%E1%85%A7%E1%86%B7_to7p91.wav"
+  />
+  Your browser does not support the
+  <code>audio</code> element.
+</audio>
+<a href="javascript:void();" class="audio-ctrl">
+  <img
+    src="https://res.cloudinary.com/pickring/image/upload/v1603974477/res/pause-button_yavde4.svg"
+    alt="pause-button"
+  />
+  <img
+    style="display: none"
+    src="https://res.cloudinary.com/pickring/image/upload/v1603974477/res/play-button_ydwqhe.svg"
+    alt="play-button"
+  />
+</a>
+<style>
+  .audio-ctrl {
+    height: 36px;
+    display: flex;
+    flex: 1;
+    justify-content: center;
+  }
+</style>
+<script>
+  var genreNameTag = document.querySelector("div[data-genre]");
+  if (!genreNameTag) {
+    document.querySelectorAll(".audio-ctrl").forEach(function (_anchor) {
+      _anchor.setAttribute("style", "display: none;");
+    });
+  }
+
+  function playNow() {
+    if (genreNameTag.dataset.genre !== "ROCK") {
+      return;
+    }
+    var bgmPlayer = document.querySelector("#bgm-player");
+    if (bgmPlayer.paused) {
+      document
+        .querySelectorAll(".audio-ctrl img:first-child")
+        .forEach(function (_img) {
+          _img.setAttribute("style", "display: none");
+        });
+      document
+        .querySelectorAll(".audio-ctrl img:last-child")
+        .forEach(function (_img) {
+          _img.setAttribute("style", "display: auto");
+        });
+      var bgmPlayedPromise = bgmPlayer.play();
+      if (bgmPlayedPromise !== undefined) {
+        bgmPlayedPromise.catch((err) => {
+          if (err.name === "NotAllowedError") {
+            alert("Click play button!");
+          }
+        });
+        return;
+      }
+    }
+    document
+      .querySelectorAll(".audio-ctrl img:first-child")
+      .forEach(function (_img) {
+        _img.setAttribute("style", "display: auto");
+      });
+
+    document
+      .querySelectorAll(".audio-ctrl img:last-child")
+      .forEach(function (_img) {
+        _img.setAttribute("style", "display: none");
+      });
+
+    bgmPlayer.pause();
+  }
+
+  $(document).ready(function () {
+    $(".bgm-container").each(function () {
+      $(
+        '<audio id="bgm-player" loop>' +
+          '<source src="https://res.cloudinary.com/pickring/video/upload/v1603967128/audio/MR%E1%84%8C%E1%85%A2%E1%84%87%E1%85%AE%E1%84%90%E1%85%B5%E1%86%BC-%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%8C%E1%85%A1%E1%86%BC%E1%84%8B%E1%85%A6_%E1%84%89%E1%85%B3%E1%86%AF%E1%84%85%E1%85%B5%E1%84%91%E1%85%A5_%E1%84%80%E1%85%B5%E1%86%B7%E1%84%8C%E1%85%A2%E1%84%80%E1%85%A7%E1%86%B7_to7p91.wav" />' +
+          "Your browser does not support the<code>audio</code> element." +
+          "</audio>" +
+          '<a href="javascript:playNow();" class="audio-ctrl">' +
+          '<img src="https://res.cloudinary.com/pickring/image/upload/v1603974477/res/pause-button_yavde4.svg" alt="pause-button"/>' +
+          '<img style="display: none" src="https://res.cloudinary.com/pickring/image/upload/v1603974477/res/play-button_ydwqhe.svg" alt="play-button"/>' +
+          "</a>"
+      ).insertAfter(this);
+    });
+  });
+</script>
